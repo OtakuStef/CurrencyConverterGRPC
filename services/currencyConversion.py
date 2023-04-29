@@ -34,4 +34,5 @@ def convertCurrency(startcurr, quantity, endcurr):
     if endcurr == "USD":
         return quantity / USDrates[startcurr]
 
-    return quantity * (USDrates[endcurr] / USDrates[startcurr])
+    print(f"Converted {quantity}USD to {endcurr}")
+    return round(quantity * (USDrates[endcurr] / USDrates[startcurr]), 2)

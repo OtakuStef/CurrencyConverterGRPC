@@ -23,7 +23,6 @@ import currencyConversion
 
 
 def calculate(request):
-    print("Currency conversion started")
     return currencyConversion.convertCurrency("USD", request.value, request.currency)
 
 
