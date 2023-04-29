@@ -27,9 +27,9 @@ def run():
     # used in circumstances in which the with statement does not fit the needs
     # of the code.
     print("Will try to convert the currency ...")
-    with grpc.insecure_channel('localhost:50051') as channel:
+    with grpc.insecure_channel('localhost:8051') as channel:
         stub = currencyconverter_pb2_grpc.CurrencyConverterStub(channel)
-        response = stub.ConvertCurrency(currencyconverter_pb2.CurrencyRequest(currency='EUR', value=40))
+        response = stub.ConvertCurrency(currencyconverter_pb2.CurrencyRequest(currency="EUR", value=40))
     print("Currency Converted: " + str(response.converted_currency))
 
 
