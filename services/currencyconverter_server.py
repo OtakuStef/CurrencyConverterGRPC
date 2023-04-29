@@ -33,7 +33,7 @@ class CurrencyConverter(currencyconverter_pb2_grpc.CurrencyConverterServicer):
 
 
 def serve():
-    port = '8051'
+    port = '8501'
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     currencyconverter_pb2_grpc.add_CurrencyConverterServicer_to_server(CurrencyConverter(), server)
     server.add_insecure_port('[::]:' + port)
