@@ -19,14 +19,18 @@ import logging
 import grpc
 import currencyconverter_pb2
 import currencyconverter_pb2_grpc
+import currencyConversion
 
-def calculate(currency):
-    return 2 * currency
+
+def calculate(request):
+    print("Currency conversion started")
+    return currencyConversion.convertCurrency("USD", request.value, request.currency)
+
 
 class CurrencyConverter(currencyconverter_pb2_grpc.CurrencyConverterServicer):
 
     def ConvertCurrency(self, request, context):
-        return currencyconverter_pb2.CurrencyReply(converted_currency=calculate(request.value))
+        return currencyconverter_pb2.CurrencyReply(converted_currency=calculate(request))
 
 
 def serve():
